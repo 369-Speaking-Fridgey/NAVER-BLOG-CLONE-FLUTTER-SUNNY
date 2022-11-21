@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:naver_blog/pages/explore.dart';
+import 'package:naver_blog/pages/post.dart';
+import 'package:naver_blog/pages/saved.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,9 +9,9 @@ class HomePage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      title: '이웃새글',
+      home: MyHomePage(title: '이웃새글'),
     );
   }
 }
@@ -22,51 +25,51 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class Items {
+  const Items(this.iconData, this.text);
+  final IconData iconData;
+  final String text;
+}
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class _MyHomePageState extends State<MyHomePage> {
+  final itemList = const <Items>[
+    Items(Icons.explore, 'Explore'),
+    Items(Icons.create_outlined, 'Post'),
+    Items(Icons.bookmark, 'Saved'),
+  ];
+
+  int index = 0;
+  final _buildBody = const <Widget>[
+    Explore(title: 'Explore'),
+    Post(title: 'Post'),
+    Saved(title: 'Saved'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        backgroundColor: Colors.white,
-        title: Text(
-          "이웃 새글",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: index,
+        onTap: (x) {
+          setState(() {
+            index = x;
+          });
+        },
+        elevation: 30.0,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.green[900],
+        items: itemList
+            .map((Items item) => BottomNavigationBarItem(
+                  backgroundColor: Colors.white,
+                  icon: Icon(item.iconData),
+                  label: item.text,
+                ))
+            .toList(),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(8),
-        children: <Widget>[
-          Container(
-            height: 50,
-            color: Colors.amber[200],
-            child: const Center(child: Text('Entry A')),
-          ),
-          Container(
-            height: 50,
-            color: Colors.amber[300],
-            child: const Center(child: Text('Entry B')),
-          ),
-          Container(
-            height: 50,
-            color: Colors.amber[400],
-            child: const Center(child: Text('Entry C')),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: _buildBody[index],
     );
   }
 }
