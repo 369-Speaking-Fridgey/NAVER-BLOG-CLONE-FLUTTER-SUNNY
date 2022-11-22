@@ -30,8 +30,6 @@ class _ExploreState extends State<Explore> {
               itemCount: entries.length,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Container(
                       // margin: const EdgeInsets.all(3.0),
