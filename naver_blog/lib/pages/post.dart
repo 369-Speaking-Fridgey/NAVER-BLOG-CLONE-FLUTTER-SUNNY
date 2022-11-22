@@ -14,8 +14,12 @@ class Post extends StatefulWidget {
 class _PostState extends State<Post> {
   final List<String> entries = <String>['이웃1', '이웃2', '이웃3'];
 
+<<<<<<< HEAD
   TextEditingController _titleController = TextEditingController();
   QuillController _quillController = QuillController.basic();
+=======
+  TextEditingController _controller = TextEditingController();
+>>>>>>> all
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +54,7 @@ class _PostState extends State<Post> {
                   child: QuillEditor.basic(
                       controller: _quillController, readOnly: false),
                 ))
+
               ],
             )));
   }
