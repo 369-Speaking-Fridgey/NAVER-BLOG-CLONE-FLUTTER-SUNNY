@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
             index = x;
           });
         },
-        elevation: 30.0,
+        elevation: 16.0,
         showUnselectedLabels: false,
         showSelectedLabels: false,
         unselectedItemColor: Colors.black,
