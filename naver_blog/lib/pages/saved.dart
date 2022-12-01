@@ -18,6 +18,7 @@ class _SavedState extends State<Saved> {
         appBar: AppBar(
           centerTitle: false,
           backgroundColor: Colors.white,
+          elevation: 0,
           title: const Text(
             "나의 블로그",
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
@@ -73,16 +74,7 @@ class _SavedState extends State<Saved> {
                         image: NetworkImage(
                             'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
                         fit: BoxFit.fill),
-                    /*
                     Container(
-                        // margin: const EdgeInsets.all(3.0),
-                        height: 250,
-                        color: Colors.white,
-                        alignment: Alignment.center,
-                        child: const ),
-                        */
-                    Container(
-                        // margin: const EdgeInsets.all(3.0),
                         height: 150,
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.all(10.0),
