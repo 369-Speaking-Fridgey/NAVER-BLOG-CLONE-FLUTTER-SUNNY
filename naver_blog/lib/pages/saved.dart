@@ -41,35 +41,35 @@ class _SavedState extends State<Saved> {
                     height: 70,
                     color: Colors.white,
                     child: Container(
-                        padding: const EdgeInsets.all(3),
-                        child: Row(
-                          // crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.all(10.0),
-                              child: const CircleAvatar(
-                                backgroundColor: Color(0xffE6E6E6),
-                                radius: 17,
-                                child: Icon(
-                                  Icons.person,
-                                  color: Color(0xffCCCCCC),
-                                ),
+                      padding: const EdgeInsets.all(3),
+                      child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.all(10.0),
+                            child: const CircleAvatar(
+                              backgroundColor: Color(0xffE6E6E6),
+                              radius: 17,
+                              child: Icon(
+                                Icons.person,
+                                color: Color(0xffCCCCCC),
                               ),
                             ),
-                            Container(
-                                margin: const EdgeInsets.all(10.0),
-                                child: const Text(
-                                  "나야나",
-                                  textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          ],
-                        )),
+                          ),
+                          Container(
+                              margin: const EdgeInsets.all(10.0),
+                              child: const Text(
+                                "나야나",
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ),
+                    ),
                   ),
                   const Image(
                       image: NetworkImage(
